@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-header">
+    {{productList}}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">{{filter}}</div>
+      <div class="col-md-4">
+        <span class="row">
+          <input type="text" class="form-control col-md-8 " [(ngModel)]='listFilter' >
+          <span class="btn btn-primary  col-md-1" >
+            <i class="fa fa-search"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Result :{{listFilter | uppercase}}
+      </div>
+    </div>
+    <div class="table-responsive">
+
+      <table class="table table-striped table-hover" *ngIf='products && products.length'>
+        <thead>
+          <tr>
+            <th><button class="btn-primary" (click)='toogleImage()'>{{showImage ? 'Hide':'Show'}} Image</button></th>
+            <th>URUN ID</th>
+            <th>URUN ADI</th>
+            <th>URUN KODU</th>
+            <th>AÇIKLAMA</th>
+            <th>KAYIT ZAMANI</th>
+            <th>ADET</th>
+            <th>FIYAT</th>
+            <th>RATING</th>
+            <th>TOPLAM</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor='let p of filteredProductList'>
+          <td>
+         <img *ngIf='showImage' src={{p.imageUrl}} [title]='p.adi' [style.width.px]='imageW'
+         [style.width.px]='imageW'
+         [style.margin.px]='imageMargin'
+         />
+          </td>
+          <td>{{p.productId}}</td>
+          <td>{{p.productName | uppercase}}</td>
+          <td>{{p.productCode }}</td>
+          <td>{{p.description}}</td>
+          <td>{{p.releaseDate}}</td>
+          <td>{{p.piece}}</td>
+          <td>{{p.price | currency:'TL' | lowercase}}</td>
+          <td>
+            <pm-star [rating]='p.starRating'
+                    (ratingClicked)='onRatingClicked($event)'
+            >
+          </pm-star></td>
+
+          <td>{{p.piece*p.price | currency:'TL' |lowercase}}</td>
+         </tr>
+            
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>
+
+<div>
