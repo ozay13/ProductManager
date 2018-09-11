@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IProduct } from '../../Dtos/product';
-import { ProductService } from '../../Services/product.service';
+import { IProductService } from '../../Services/interface/product.interface';
+import { ProductService } from '../../Services/implement/product.service';
 
 /*
 Author ozaytunctan
