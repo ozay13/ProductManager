@@ -8,20 +8,34 @@ import { ProductListComponent } from './Views/product-list/product-list.componen
 import { ProductDetailsComponent } from './Views/product-details/product-details.component';
 import { StarComponent } from './Shared/star/star.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WelcomeComponent } from './Views/welcome/welcome.component';
+import { NotfoundpageComponent } from './Shared/notfoundpage/notfoundpage.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    StarComponent
+    StarComponent,
+    WelcomeComponent,
+    NotfoundpageComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    RouterModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'products',component:ProductListComponent},
+      {path:'product-detail',component:ProductDetailsComponent},
+      {path:'welcome',component:WelcomeComponent},
+      {path:' ',redirectTo:'welcome' , pathMatch:'full' },
+      {path:'**',component:NotfoundpageComponent,pathMatch:'full'}
+
+    ])
+
   ],
   providers: [],
   bootstrap: [AppComponent]

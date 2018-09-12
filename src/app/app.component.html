@@ -1,4 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<h1 align="center">{{title}}</h1>  
-<pm-product-list></pm-product-list>
+
+<nav class="navbar navbar-expand navber-ligth bg-light">
+<ul class="nav nav-pills">
+    <li>
+      <a class="nav-link " [routerLink]="['/welcome']">Home</a>
+    </li>
+    <li>
+      <a class="nav-link" [routerLink]="['/products']">Ürün Listesi</a>
+    </li>
+  </ul>
+</nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
 

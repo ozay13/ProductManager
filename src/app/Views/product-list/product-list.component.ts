@@ -10,7 +10,6 @@ version:1.0
 09.09.2018
 */
 @Component({
-  selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   providers: [ProductService]
